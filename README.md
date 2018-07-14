@@ -10,20 +10,6 @@
 * Build scrapper runner: `docker build -t scrapper-runner .`
 * Run scrapper runner: `docker run -it --network scrapper-network scrapper-runner`
 
-
-### Useful Docker Commands
-
-* List all running containers: `docker ps`
-* List all containers: `docker ps -a`
-* Start/Stop container `docker start/stop CONTAINER_ID`
-* `You can write first 2 or 3 characters of container id instead of writing whole ID`
-* List images: `docker images`
-* Remove containers: `docker rm CONTAINER_ID`
-* Remove images: `docker rmi IMAGE_ID`
-* By using `docker build` command, you create an image using your Dockerfile.
-* Using an image, you can create a container.
-
-
 ### Use it without Docker
 
 * Go to api path
@@ -36,3 +22,20 @@
 * `dotnet restore`
 * `dotnet build`
 * `dotnet run`
+
+### Use docker to run api only 
+
+* Go to api path
+* `docker run -p 5000:5000 scrapper-api`
+
+### Useful Docker Commands
+
+* List all running containers: `docker ps`
+* List all containers: `docker ps -a`
+* Start/Stop container `docker start/stop CONTAINER_ID`
+* `You can write first 2 or 3 characters of container id instead of writing whole ID`
+* List images: `docker images`
+* Remove containers: `docker rm CONTAINER_ID`
+* Remove images: `docker rmi IMAGE_ID`
+* By using `docker build` command, you create an image using your Dockerfile.
+* Using an image, you can create a container.
