@@ -1,5 +1,6 @@
 ﻿using System;
 using Scrapper.Runner.ApiClient;
+using JsonConfig;
 
 namespace Scrapper.Runner
 {
@@ -9,23 +10,30 @@ namespace Scrapper.Runner
         {
             while (true)
             {
+                // get user inputs
                 var keyword = string.Empty;
                 var targetUrl = string.Empty;
-
                 Console.WriteLine("Please enter search key word. e.g. conveyancing software");
                 keyword = Console.ReadLine();
-
                 Console.WriteLine("Please enter target url. e.g. www.smokeball.com.au");
                 targetUrl = Console.ReadLine();
 
-                // var baseUrl = "http://scrapper-api-container:5000";
-                var baseUrl = "http://localhost:5000";
-                Console.WriteLine(baseUrl);
-                var client = new ScrapperApiClient(baseUrl);
+                // get scrapper web api url
+                var scrapperApiEndpoint = GetApiEndpoint();
+
+                // send request
+                var client = new ScrapperApiClient(scrapperApiEndpoint);
+                Console.WriteLine($"A request with search keyword [{keyword}] has been sent to [{scrapperApiEndpoint}]");
                 var result = client.GetPositions($"/api/scrapper?keyword={keyword}&targeturl={targetUrl}");
 
-                Console.WriteLine(string.Join(",", result.Positions));
+                // display result
+                Console.WriteLine($"[{targetUrl}] is found in search result location positon: {string.Join(",", result.Positions)}");
             }
+        }
+
+        public static string GetApiEndpoint()
+        {
+            return Config.Default.ApiEndpoint;
         }
     }
 }
