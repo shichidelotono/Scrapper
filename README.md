@@ -9,6 +9,13 @@ The project is implemented in .Net Core. It contains 2 solutions: WebApi and Con
 * Console App provides user to input search keyword and target keyword (e.g. url or string).
 * WebApi provides an endpoint to console app making a web service call.
 
+## Experiments
+
+* .Net Core 2.1
+* MediatR (In-process messaging .Net library) 
+* AngleSharp (Html parser library)
+* Docker
+
 # Getting Started
 
 You can run the console app and the webapi in Visual Studio 2017, console, or docker container(scripts provided)
@@ -50,12 +57,12 @@ If you have docker installed you can
 * First, create network: `docker network create scrapper-network`
 
 * Go to scrapper api path.
-* Build scrapper api: `docker build -t scrapper-api .`
-* Run scrapper api: `docker run --name scrapper-api-container --net scrapper-network scrapper-api`
+* Build scrapper api application image: `docker build -t scrapper-api .`
+* Run scrapper api using above image: `docker run --name scrapper-api-container --net scrapper-network scrapper-api`
 
 * Set webapi endpoing in default.conf
 * Go to scrapper runner path
-* Build scrapper runner: `docker build -t scrapper-runner .`
+* Build scrapper runner application image: `docker build -t scrapper-runner .`
 * Run scrapper runner: `docker run -it --network scrapper-network scrapper-runner`
 
 ## Use docker to run api only 
@@ -72,7 +79,8 @@ If you have docker installed you can
 * Start/Stop container `docker start/stop CONTAINER_ID`
 * `You can write first 2 or 3 characters of container id instead of writing whole ID`
 * List images: `docker images`
-* Remove containers: `docker rm CONTAINER_ID`
-* Remove images: `docker rmi IMAGE_ID`
+* Remove containers: `docker rm CONTAINER_ID CONTAINER_ID CONTAINER_ID`
+* Remove images: `docker rmi IMAGE_ID IMAGE_ID IMAGE_ID`
+* Remove all not-running containers and network `docker system prune`
 * By using `docker build` command, you create an image using your Dockerfile
 * Using an image, you can create a container.
