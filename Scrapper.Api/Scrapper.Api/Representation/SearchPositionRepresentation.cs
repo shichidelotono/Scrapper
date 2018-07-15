@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Scrapper.Api.Representation.Extension;
 
 namespace Scrapper.Api.Representation
 {
@@ -8,7 +9,7 @@ namespace Scrapper.Api.Representation
 
         public SearchPositionRepresentation(IEnumerable<int> positions)
         {
-            Positions = positions;
+            Positions = positions.ToRepresentationalPositions();
         }
     }
 }

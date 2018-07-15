@@ -11,6 +11,7 @@ namespace Scrapper.Api.HtmlService
         public IEnumerable<int> GetSearchPositions(string htmlString, string targetUrl)
         {
             var document = _htmlParser.Parse(htmlString);
+
             return document.All
                 .Where(doc => doc.LocalName == "div" && doc.ClassList.Contains("g"))
                 .Select((elem, index) => new { index, elem.InnerHtml })

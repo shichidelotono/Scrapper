@@ -3,7 +3,7 @@ using MediatR;
 
 namespace Scrapper.Api.Queries
 {
-    public class GetSearchPositionsQuery : IRequest<List<int>>
+    public class GetSearchPositionsQuery : IRequest<IEnumerable<int>>
     {
         public string Keyword { get; }
         public string TargetUrl { get; }

@@ -19,16 +19,14 @@ namespace Scrapper.Api.Controllers
         [HttpGet]
         public async Task<SearchPositionRepresentation> Get(string keyword, string targetUrl)
         {
+            // create query
             var query = new GetSearchPositionsQuery(keyword, targetUrl);
+
+            // sending query via mediator
             var result = await _mediator.Send(query);
 
+            // convert result to client specific representational object
             return new SearchPositionRepresentation(result);
         }
-
-        // POST api/values
-        //[HttpPost]
-        //public void Post([FromBody]string value)
-        //{
-        //}
     }
 }

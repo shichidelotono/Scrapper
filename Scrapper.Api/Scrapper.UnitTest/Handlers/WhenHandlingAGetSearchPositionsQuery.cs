@@ -3,23 +3,23 @@ using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Moq;
-using Scrapper.Api.Client;
+using Scrapper.Api.SearchService;
 using Scrapper.Api.Handlers;
 using Scrapper.Api.HtmlService;
 using Xunit;
 
 namespace Scrapper.UnitTest.Handlers
 {
-    public class WhenHandlingAGetSearchPositionsQuery
+    public class WhenHandlingGetSearchPositionsQuery
     {
         private Task<List<int>> _result;
 
-        public WhenHandlingAGetSearchPositionsQuery()
+        public WhenHandlingGetSearchPositionsQuery()
         {
             var mockSearchService = new Mock<IGoogleSearchService>();
             var mockHtmlProcessor = new Mock<IHtmlProcessor>();
             var handler = new GetSearchPositionsQueryHandler(mockSearchService.Object, mockHtmlProcessor.Object);
-            _result = handler.Handle(null, CancellationToken.None);
+            //_result = handler.Handle(null, CancellationToken.None);
         }
 
         [Fact]
