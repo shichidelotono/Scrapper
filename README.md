@@ -28,12 +28,12 @@ Install the following
 
 # Running the applications
 
-Locate default.conf file in Scrapper.Runner solution folder. This is the configuration file to config webapi endpoint for local machine and docker 
+Locate default.conf file in Scrapper.Runner solution folder. This is the configuration file to config webapi endpoint for local machine or docker 
 
 ## Local
 
 * Open Scrapper.Api solution in VS and run
-* Set webapi endpoing in default.conf
+* Set webapi endpoint in default.conf (~\Scrapper\Scrapper.Runner\Scrapper.Runner\default.conf)
 * Open Scrapper.Runner solution in VS and run
 
 or 
