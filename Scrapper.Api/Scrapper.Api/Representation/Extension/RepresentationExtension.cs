@@ -7,15 +7,9 @@ namespace Scrapper.Api.Representation.Extension
     {
         public static IEnumerable<int> ToRepresentationalPositions(this IEnumerable<int> positions)
         {
-            if (positions == null)
-                return new List<int>();
-
             positions = positions.ToList();
 
-            if (!positions.Any())
-                return new List<int>();
-
-            return positions.Select(p => p+1);
+            return !positions.Any() ? new List<int>() : positions.Select(p => p+1);
         }
     }
 }
