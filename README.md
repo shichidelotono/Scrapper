@@ -65,7 +65,7 @@ If you have docker installed you can
 * Set webapi endpoing in default.conf
 * Run Scrapper.Runner in VS or from command line
 
-### Useful Docker Commands
+## Useful Docker Commands
 
 * List all running containers: `docker ps`
 * List all containers: `docker ps -a`
