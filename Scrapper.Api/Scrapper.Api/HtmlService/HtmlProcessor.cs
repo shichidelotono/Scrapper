@@ -12,6 +12,9 @@ namespace Scrapper.Api.HtmlService
         {
             var document = _htmlParser.Parse(htmlString);
 
+            if (document == null)
+                return new List<int>();
+
             return document.All
                 .Where(doc => doc.LocalName == "div" && doc.ClassList.Contains("g"))
                 .Select((elem, index) => new { index, elem.InnerHtml })
