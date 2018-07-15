@@ -13,9 +13,9 @@ namespace Scrapper.Runner
                 // get user inputs
                 var keyword = string.Empty;
                 var targetUrl = string.Empty;
-                Console.WriteLine("Please enter search key word. e.g. conveyancing software");
+                Console.WriteLine("Please enter search key word. e.g. facebook");
                 keyword = Console.ReadLine();
-                Console.WriteLine("Please enter target url. e.g. www.smokeball.com.au");
+                Console.WriteLine("Please enter target key word as url or string. e.g. www.facebook.com");
                 targetUrl = Console.ReadLine();
 
                 // get scrapper web api url
