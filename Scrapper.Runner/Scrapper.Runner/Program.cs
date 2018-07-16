@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Scrapper.Runner
 {
@@ -22,7 +23,10 @@ namespace Scrapper.Runner
                 Console.WriteLine($"A request with search keyword [{keyword}] has been sent");
 
                 // 3. display result
-                Console.WriteLine($"[{target}] is found in search result location positon: {string.Join(",", result.Positions)}");
+                if (result == null || !result.Positions.Any())
+                    Console.WriteLine($"[{target}] is not found in search result");
+                else
+                    Console.WriteLine($"[{target}] is found in search result location positon: {string.Join(",", result.Positions)}");
             }
         }
     }
