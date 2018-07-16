@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <PackageReference Include="JsonConfig" Version="1.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.1" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
   </ItemGroup>
 
